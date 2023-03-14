@@ -83,7 +83,7 @@ if (!function_exists('nenmongvn_header')) {
     <div class="site-description">
       <?php bloginfo('description') ?>
     </div>
-<?php
+    <?php
   }
 }
 
@@ -97,5 +97,25 @@ if (!function_exists('nenmongvn_menu')) {
       'container_class' => $menu
     );
     wp_nav_menu($menu);
+  }
+}
+
+if (!function_exists('nenmongvn_pagination')) {
+  function nenmongvn_pagination()
+  {
+    if ($GLOBALS['wp_query']->max_num_pages < 2) {
+      return ''; // Ko phân trang khi số lượng page < 2
+    } else {
+    ?>
+      <nav class="navigation" role="navigation">
+        <?php if (get_previous_posts_link()) { ?>
+          <div class="prev"><?php previous_posts_link(__('Newer Posts', 'tuzakutextdomain')) ?></div>
+        <?php } ?>
+        <?php if (get_next_posts_link()) { ?>
+          <div class="next"><?php next_posts_link(__('Older Posts', 'tuzakutextdomain')) ?></div>
+        <?php } ?>
+      </nav>
+<?php
+    }
   }
 }
