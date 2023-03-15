@@ -8,7 +8,7 @@
     if (have_posts()) {
       while (have_posts()) {
         the_post();
-        // Lấy nội dung file content-$format.php chèn vào đây,
+        // Lấy nội dung file content-$format.php chèn vào đây, ex: content-link.php, content-video.php...
         // nếu post hiện tại ko có format, nó sẽ lấy file content.php
         get_template_part('content', get_post_format());
       }
