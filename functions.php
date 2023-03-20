@@ -176,27 +176,7 @@ if (!function_exists('nenmongvn_entry_meta')) {
 if (!function_exists('nenmongvn_entry_content')) {
   function nenmongvn_entry_content()
   {
-    if (!is_single()) {
-      the_excerpt();
-    } else {
-      the_content();
-
-      // pagination in single
-      $link_pages = array(
-        'before' => __('<p>Page: ', 'tuzakutextdomain'),
-        'after' => '</p>',
-        'nextpagelink' => __('Next Page', 'tuzakutextdomain'),
-        'previouspagelink' => __('Previous Page', 'tuzakutextdomain')
-      );
-      wp_link_pages($link_pages);
-    }
-  }
-}
-
-if (!function_exists('nenmongvn_entry_content')) {
-  function nenmongvn_entry_content()
-  {
-    if (!is_single()) {
+    if (!is_single() && !is_page()) {
       the_excerpt();
     } else {
       the_content();

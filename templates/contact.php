@@ -3,7 +3,6 @@
 /**
  * Template Name: Contact
  */
-echo "This is contact.php";
 
 if (have_posts()) {
   while (have_posts()) {

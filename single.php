@@ -9,8 +9,6 @@
 
 <?php get_header(); ?>
 
-<h2>Hello world, this is single.php</h2>
-
 <div class="content">
   <div class="main-content">
     <?php
@@ -20,8 +18,9 @@
         // Lấy nội dung file content-$format.php chèn vào đây,
         // nếu post hiện tại ko có format, nó sẽ lấy file content.php
         get_template_part('content', get_post_format());
+        get_template_part('author-bio');
+        comments_template();
       }
-      nenmongvn_pagination();
     } else {
       // Chèn file content-none.php vào đây
       get_template_part('content', 'none');
